@@ -5,7 +5,7 @@ import os
 import mimetypes
 import json
 import shutil
-from typing import List
+from typing import List, Optional
 from cog import BasePredictor, Input, Path
 from comfyui import ComfyUI
 from cog_model_helpers import optimise_images
@@ -66,20 +66,16 @@ class Predictor(BasePredictor):
 
     def predict(
         self,
-        prompt: str = Input(
+        workflow_json: str = Input(
             default="",
         ),
-        negative_prompt: str = Input(
-            description="Things you do not want to see in your image",
-            default="",
+        input_file: Optional[Path] = Input(description='Input files'),
+        output_format: str = Input(
+            description="Format of the output images",
+            choices=["mp4"],
+            default="mp4"
         ),
-        image: Path = Input(
-            description="An input image",
-            default=None,
-        ),
-        output_format: str = optimise_images.predict_output_format(),
-        output_quality: int = optimise_images.predict_output_quality(),
-        seed: int = seed_helper.predict_seed(),
+        output_quality: int = optimise_images.predict_output_quality()
     ) -> List[Path]:
         """Run a single prediction on the model"""
         self.comfyUI.cleanup(ALL_DIRECTORIES)
@@ -87,26 +83,17 @@ class Predictor(BasePredictor):
         # Make sure to set the seeds in your workflow
         seed = seed_helper.generate(seed)
 
-        image_filename = None
-        if image:
-            image_filename = self.filename_with_extension(image, "image")
-            self.handle_input_file(image, image_filename)
-
-        with open(api_json_file, "r") as file:
-            workflow = json.loads(file.read())
-
-        self.update_workflow(
-            workflow,
-            prompt=prompt,
-            negative_prompt=negative_prompt,
-            image_filename=image_filename,
-            seed=seed,
-        )
+        
+        workflow = json.loads(workflow_json)
 
         wf = self.comfyUI.load_workflow(workflow)
         self.comfyUI.connect()
         self.comfyUI.run_workflow(wf)
 
-        return optimise_images.optimise_image_files(
-            output_format, output_quality, self.comfyUI.get_files(OUTPUT_DIR)
+        output_directories = [OUTPUT_DIR]
+        optimised_files = optimise_images.optimise_image_files(
+            output_format, output_quality, self.comfyUI.get_files(output_directories)
         )
+    
+
+        return [Path(p) for p in optimised_files]

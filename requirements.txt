@@ -3,7 +3,7 @@ torchvision
 torchaudio
 torchsde
 einops
-transformers==4.49.0
+transformers>=4.49.0
 tokenizers>=0.13.3
 sentencepiece
 safetensors>=0.3.0
@@ -28,7 +28,7 @@ albumentations
 pydantic~=2.0
 pydantic-settings~=2.0
 cmake
-imageio
+imageio[ffmpeg]
 joblib
 matplotlib
 pilgram
@@ -71,5 +71,5 @@ sageattention
 simpleeval
 clip_interrogator>=0.6.0
 lark
-onnxruntime
+# onnxruntime
 peft
