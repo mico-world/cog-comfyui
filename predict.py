@@ -5,7 +5,10 @@ import os
 import mimetypes
 import json
 import shutil
+import tarfile
 from typing import List, Optional
+import zipfile
+from PIL import Image
 from cog import BasePredictor, Input, Path
 from comfyui import ComfyUI
 from cog_model_helpers import optimise_images
@@ -22,78 +25,84 @@ mimetypes.add_type("image/webp", ".webp")
 api_json_file = "workflow_api.json"
 
 # Force HF offline
-os.environ["HF_DATASETS_OFFLINE"] = "1"
-os.environ["TRANSFORMERS_OFFLINE"] = "1"
-os.environ["HF_HUB_DISABLE_TELEMETRY"] = "1"
+# os.environ["HF_DATASETS_OFFLINE"] = "1"
+# os.environ["TRANSFORMERS_OFFLINE"] = "1"
+# os.environ["HF_HUB_DISABLE_TELEMETRY"] = "1"
+IMAGE_TYPES = [".jpg", ".jpeg", ".png", ".webp"]
+VIDEO_TYPES = [".mp4", ".mov", ".avi", ".mkv", ".webm"]
+
 
 class Predictor(BasePredictor):
     def setup(self):
         self.comfyUI = ComfyUI("127.0.0.1:8188")
         self.comfyUI.start_server(OUTPUT_DIR, INPUT_DIR)
 
-        # Give a list of weights filenames to download during setup
-        with open(api_json_file, "r") as file:
-            workflow = json.loads(file.read())
-        self.comfyUI.handle_weights(
-            workflow,
-            weights_to_download=[],
-        )
-
     def filename_with_extension(self, input_file, prefix):
         extension = os.path.splitext(input_file.name)[1]
         return f"{prefix}{extension}"
 
-    def handle_input_file(
-        self,
-        input_file: Path,
-        filename: str = "image.png",
-    ):
-        shutil.copy(input_file, os.path.join(INPUT_DIR, filename))
+    def handle_input_file(self, input_file: Path):
+        file_extension = self.get_file_extension(input_file)
 
-    # Update nodes in the JSON workflow to modify your workflow based on the given inputs
-    def update_workflow(self, workflow, **kwargs):
-        # Below is an example showing how to get the node you need and update the inputs
+        if file_extension == ".tar":
+            with tarfile.open(input_file, "r") as tar:
+                tar.extractall(INPUT_DIR)
+        elif file_extension == ".zip":
+            with zipfile.ZipFile(input_file, "r") as zip_ref:
+                zip_ref.extractall(INPUT_DIR)
+        elif file_extension in IMAGE_TYPES + VIDEO_TYPES:
+            shutil.copy(input_file, os.path.join(
+                INPUT_DIR, f"input{file_extension}"))
+        else:
+            raise ValueError(f"Unsupported file type: {file_extension}")
 
-        # positive_prompt = workflow["6"]["inputs"]
-        # positive_prompt["text"] = kwargs["prompt"]
+        print("====================================")
+        print(f"Inputs uploaded to {INPUT_DIR}:")
+        self.comfyUI.get_files(INPUT_DIR)
+        print("====================================")
 
-        # negative_prompt = workflow["7"]["inputs"]
-        # negative_prompt["text"] = f"nsfw, {kwargs['negative_prompt']}"
-
-        # sampler = workflow["3"]["inputs"]
-        # sampler["seed"] = kwargs["seed"]
-        pass
+    def get_file_extension(self, input_file: Path) -> str:
+        file_extension = os.path.splitext(input_file)[1].lower()
+        if not file_extension:
+            with open(input_file, "rb") as f:
+                file_signature = f.read(4)
+            if file_signature.startswith(b"\x1f\x8b"):  # gzip signature
+                file_extension = ".tar"
+            elif file_signature.startswith(b"PK"):  # zip signature
+                file_extension = ".zip"
+            else:
+                try:
+                    with Image.open(input_file) as img:
+                        file_extension = f".{img.format.lower()}"
+                        print(f"Determined file type: {file_extension}")
+                except Exception as e:
+                    raise ValueError(
+                        f"Unable to determine file type for: {input_file}, {e}"
+                    )
+        return file_extension
 
     def predict(
         self,
         workflow_json: str = Input(
             default="",
         ),
-        input_file: Optional[Path] = Input(description='Input files'),
-        output_format: str = Input(
-            description="Format of the output images",
-            choices=["mp4"],
-            default="mp4"
-        ),
-        output_quality: int = optimise_images.predict_output_quality()
+        input_file: Optional[Path] = Input(
+            default=None, description='Input files'),
     ) -> List[Path]:
         """Run a single prediction on the model"""
         self.comfyUI.cleanup(ALL_DIRECTORIES)
 
-        # Make sure to set the seeds in your workflow
-        seed = seed_helper.generate(seed)
+        if input_file:
+            self.handle_input_file(input_file)
 
-        
-        workflow = json.loads(workflow_json)
+        wf = self.comfyUI.load_workflow(workflow_json)
 
-        wf = self.comfyUI.load_workflow(workflow)
         self.comfyUI.connect()
         self.comfyUI.run_workflow(wf)
 
         output_directories = [OUTPUT_DIR]
-        optimised_files = optimise_images.optimise_image_files(
-            output_format, output_quality, self.comfyUI.get_files(output_directories)
-        )
-    
+        # optimised_files = optimise_images.optimise_video_files(
+        #     output_format, output_quality, self.comfyUI.get_files(output_directories)
+        # )
 
-        return [Path(p) for p in optimised_files]
+        return [Path(p) for p in self.comfyUI.get_files(output_directories)]

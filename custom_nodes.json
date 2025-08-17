@@ -78,5 +78,13 @@
   {
     "repo": "https://github.com/ShmuelRonen/ComfyUI-VideoUpscale_WithModel",
     "commit": "1f43704"
+  },
+  {
+    "repo": "https://github.com/glifxyz/ComfyUI-GlifNodes",
+    "commit": "b86352c"
+  },
+  {
+    "repo": "https://github.com/mico-world/comfyui_mico_node",
+    "commit": "ba2df28"
   }
 ]

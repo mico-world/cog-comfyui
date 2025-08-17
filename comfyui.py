@@ -98,7 +98,7 @@ class ComfyUI:
 
         for node in workflow.values():
             # Skip HFHubLoraLoader and LoraLoaderFromURL nodes since they handle their own weights
-            if node.get("class_type") in ["HFHubLoraLoader", "LoraLoaderFromURL"]:
+            if node.get("class_type") in ["HFHubLoraLoader", "LoraLoaderFromURL", "HFUNETLoader"]:
                 continue
 
             self.apply_helper_methods("add_weights", weights_to_download, Node(node))
