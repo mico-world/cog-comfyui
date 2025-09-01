@@ -1,0 +1,8 @@
+[
+    {
+        "repo_id": "Comfy-Org/Wan_2.1_ComfyUI_repackaged",
+        "subfolder": "split_files/diffusion_models",
+        "filename": "wan2.1_vace_14B_fp16.safetensors",
+        "model_type": "diffusion_models"
+    }
+]

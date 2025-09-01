@@ -1,6 +1,7 @@
 import subprocess
 import time
 import os
+from user_weights_downloader import HFWeightsDownloader
 from weights_manifest import WeightsManifest
 
 
@@ -21,6 +22,7 @@ class WeightsDownloader:
     def __init__(self):
         self.weights_manifest = WeightsManifest()
         self.weights_map = self.weights_manifest.weights_map
+        self.hf_downloader = HFWeightsDownloader()
 
     def get_canonical_weight_str(self, weight_str):
         return self.weights_manifest.get_canonical_weight_str(weight_str)
@@ -46,6 +48,8 @@ class WeightsDownloader:
                     self.weights_map[weight_str]["url"],
                     self.weights_map[weight_str]["dest"],
                 )
+        elif weight_str in self.hf_downloader.support_weights():
+            self.hf_downloader.download(weight_str)
         else:
             raise ValueError(
                 f"{weight_str} unavailable. View the list of available weights: https://github.com/replicate/cog-comfyui/blob/main/supported_weights.md"

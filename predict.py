@@ -88,9 +88,13 @@ class Predictor(BasePredictor):
         ),
         input_file: Optional[Path] = Input(
             default=None, description='Input files'),
+        hf_token: str = Input(default="")
     ) -> List[Path]:
         """Run a single prediction on the model"""
         self.comfyUI.cleanup(ALL_DIRECTORIES)
+
+        if hf_token:
+            self.comfyUI.weights_downloader.hf_downloader.set_hf_token(hf_token)
 
         if input_file:
             self.handle_input_file(input_file)
