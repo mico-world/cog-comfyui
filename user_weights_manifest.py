@@ -1,6 +1,6 @@
 import json
 
-import config
+from config import config
 
 MODELS_PATH = config["MODELS_PATH"]
 
@@ -31,7 +31,6 @@ class WeightsManifest:
             value = dict(
                 repo_id=weights.get("repo_id"),
                 filename=weights.get("filename"),
-                local_dir=weights.get("local_dir"),
                 subfolder=weights.get("subfolder"),
                 local_dir=local_dir
             )
