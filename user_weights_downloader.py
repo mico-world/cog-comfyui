@@ -55,7 +55,7 @@ class HFWeightsDownloader:
             path = temp_path
 
             if subfolder:
-                path = local_dir
+                path = os.path.join(local_dir, filename)
                 shutil.move(temp_path, path)
                 
             file_size_bytes = os.path.getsize(os.path.join(path))

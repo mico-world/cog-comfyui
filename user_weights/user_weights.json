@@ -1,32 +1,32 @@
 [
     {
         "repo_id": "Comfy-Org/Qwen-Image_ComfyUI",
+        "subfolder": "split_files/diffusion_models",
         "filename": "qwen_image_fp8_e4m3fn.safetensors",
-        "model_type": "diffusion_models",
-        "subfolder": "split_files/diffusion_models"
+        "model_type": "diffusion_models"
     },
     {
         "repo_id": "Comfy-Org/Qwen-Image_ComfyUI",
+        "subfolder": "split_files/text_encoders",
         "filename": "qwen_2.5_vl_7b_fp8_scaled.safetensors",
-        "model_type": "clip",
-        "subfolder": "split_files/text_encoders"
+        "model_type": "clip"
     },
     {
         "repo_id": "Comfy-Org/Qwen-Image_ComfyUI",
+        "subfolder": "split_files/vae",
         "filename": "qwen_image_vae.safetensors",
-        "model_type": "vae",
-        "subfolder": "split_files/vae"
+        "model_type": "vae"
     },
     {
         "repo_id": "Comfy-Org/Qwen-Image_ComfyUI",
+        "subfolder": "split_files/diffusion_models",
         "filename": "qwen_image_edit_fp8_e4m3fn.safetensors",
-        "model_type": "diffusion_models",
-        "subfolder": "split_files/diffusion_models"
+        "model_type": "diffusion_models"
     },
     {
         "repo_id": "Comfy-Org/Wan_2.1_ComfyUI_repackaged",
+        "subfolder": "split_files/diffusion_models",
         "filename": "wan2.1_vace_14B_fp16.safetensors",
-        "model_type": "diffusion_models",
-        "subfolder": "split_files/diffusion_models"
+        "model_type": "diffusion_models"
     }
 ]

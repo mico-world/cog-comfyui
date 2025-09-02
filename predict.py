@@ -86,8 +86,6 @@ class Predictor(BasePredictor):
         workflow_json: str = Input(
             default="",
         ),
-        input_file: Optional[Path] = Input(
-            default=None, description='Input files'),
         hf_token: str = Input(default="")
     ) -> List[Path]:
         """Run a single prediction on the model"""
@@ -96,17 +94,11 @@ class Predictor(BasePredictor):
         if hf_token:
             self.comfyUI.weights_downloader.hf_downloader.set_hf_token(hf_token)
 
-        if input_file:
-            self.handle_input_file(input_file)
-
         wf = self.comfyUI.load_workflow(workflow_json)
 
         self.comfyUI.connect()
         self.comfyUI.run_workflow(wf)
 
         output_directories = [OUTPUT_DIR]
-        # optimised_files = optimise_images.optimise_video_files(
-        #     output_format, output_quality, self.comfyUI.get_files(output_directories)
-        # )
 
         return [Path(p) for p in self.comfyUI.get_files(output_directories)]
