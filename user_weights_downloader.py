@@ -1,4 +1,5 @@
 from contextlib import contextmanager
+import shutil
 from user_weights_manifest import WeightsManifest
 import os
 
@@ -50,7 +51,13 @@ class HFWeightsDownloader:
             )
             if subfolder:
                 params.update(subfolder=subfolder)
-            path = hf_hub_download(**params)
+            temp_path = hf_hub_download(**params)
+            path = temp_path
+
+            if subfolder:
+                path = local_dir
+                shutil.move(temp_path, path)
+                
             file_size_bytes = os.path.getsize(os.path.join(path))
             for i in range(data_units):
                 file_size_bytes /= 1024
