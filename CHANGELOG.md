@@ -1,3 +1,6 @@
+## 2025-10-25
+
+- [Update ComfyUI to latest](https://github.com/comfyanonymous/ComfyUI/compare/e2d1e5d...426cde3)
 ## 2025-08-15
 - [Updated comfyui_mico_node](https://github.com/mico-world/comfyui_mico_node/compare/9f2c875...ba2df28)
 - [Add comfyui-model-downloader](https://github.com/ciri/comfyui-model-downloader) custom node

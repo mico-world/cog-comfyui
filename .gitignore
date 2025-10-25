@@ -17,3 +17,5 @@ updated_weights.json
 downloaded_user_models/
 .cog
 test
+
+.idea
