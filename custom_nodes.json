@@ -84,7 +84,11 @@
     "commit": "b86352c"
   },
   {
-    "repo": "https://github.com/mico-world/comfyui_mico_node",
-    "commit": "ba2df28"
+    "repo": "https://github.com/ZenAI-Vietnam/ComfyUI-Kontext-Inpainting",
+    "commit": "e475e5d"
+  },
+  {
+    "repo": "https://github.com/chflame163/ComfyUI_LayerStyle",
+    "commit": "89014d8"
   }
 ]

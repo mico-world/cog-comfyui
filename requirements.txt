@@ -73,3 +73,11 @@ clip_interrogator>=0.6.0
 lark
 # onnxruntime
 peft
+
+scikit_image
+scikit_learn
+opencv-contrib-python
+pymatting
+colour-science
+blend_modes
+loguru
