@@ -1,4 +1,6 @@
 ## 2025-10-25
+- [Add ComfyUI_LayerStyle](https://github.com/chflame163/ComfyUI_LayerStyle) custom node
+- [Add ComfyUI-Kontext-Inpainting](https://github.com/ZenAI-Vietnam/ComfyUI-Kontext-Inpainting) custom node
 
 - [Update ComfyUI to latest](https://github.com/comfyanonymous/ComfyUI/compare/e2d1e5d...426cde3)
 ## 2025-08-15
