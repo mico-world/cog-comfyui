@@ -34,5 +34,11 @@
         "filename": "zoomout-fal-v1.safetensors",
         "model_type": "loras",
         "subfolder": ""
+    },
+    {
+        "repo_id": "Comfy-Org/Qwen-Image-Edit_ComfyUI",
+        "filename": "qwen_image_edit_2509_fp8_e4m3fn.safetensors",
+        "model_type": "diffusion_models",
+        "subfolder": "split_files/diffusion_models"
     }
 ]
