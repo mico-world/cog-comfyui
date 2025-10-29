@@ -90,5 +90,9 @@
   {
     "repo": "https://github.com/chflame163/ComfyUI_LayerStyle",
     "commit": "89014d8"
+  },
+  {
+    "repo": "https://github.com/crystian/ComfyUI-Crystools",
+    "commit": "2f18256"
   }
 ]

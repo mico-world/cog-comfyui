@@ -28,5 +28,11 @@
         "filename": "wan2.1_vace_14B_fp16.safetensors",
         "model_type": "diffusion_models",
         "subfolder": "split_files/diffusion_models"
+    },
+    {
+        "repo_id": "reverentelusarca/flux-kontext-zoom-out-lora",
+        "filename": "zoomout-fal-v1.safetensors",
+        "model_type": "loras",
+        "subfolder": ""
     }
 ]

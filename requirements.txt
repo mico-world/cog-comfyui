@@ -1,6 +1,6 @@
-torch
-torchvision
-torchaudio
+torch==2.5.1+cu121
+torchvision==0.20.1+cu121
+torchaudio==2.5.1+cu121
 torchsde
 einops
 transformers>=4.49.0
@@ -28,7 +28,7 @@ albumentations
 pydantic~=2.0
 pydantic-settings~=2.0
 cmake
-imageio[ffmpeg]
+imageio
 joblib
 matplotlib
 pilgram
@@ -50,7 +50,7 @@ numpy
 scikit-image
 python-dateutil
 mediapipe
-svglib
+
 fvcore
 yapf
 omegaconf
@@ -66,13 +66,10 @@ pytorch-lightning>=2.2.1
 huggingface_hub[hf-transfer]
 iopath
 
-gguf
-sageattention
-simpleeval
-clip_interrogator>=0.6.0
-lark
-# onnxruntime
-peft
+# 无法安装
+#svglib
+
+
 
 scikit_image
 scikit_learn
@@ -81,3 +78,8 @@ pymatting
 colour-science
 blend_modes
 loguru
+
+deepdiff
+pynvml; platform_machine != 'aarch64'
+py-cpuinfo
+jetson-stats; platform_machine == 'aarch64'

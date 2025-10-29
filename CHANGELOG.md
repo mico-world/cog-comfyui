@@ -1,3 +1,6 @@
+## 2025-10-28
+
+- [Add ComfyUI-Crystools](https://github.com/crystian/ComfyUI-Crystools) custom node
 ## 2025-10-25
 - [Add ComfyUI_LayerStyle](https://github.com/chflame163/ComfyUI_LayerStyle) custom node
 - [Add ComfyUI-Kontext-Inpainting](https://github.com/ZenAI-Vietnam/ComfyUI-Kontext-Inpainting) custom node
