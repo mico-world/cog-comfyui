@@ -1,6 +1,6 @@
-torch==2.5.1+cu121
-torchvision==0.20.1+cu121
-torchaudio==2.5.1+cu121
+torch==2.6.0
+torchvision==0.21.1
+torchaudio==2.6.0
 torchsde
 einops
 transformers>=4.49.0
@@ -83,3 +83,5 @@ deepdiff
 pynvml; platform_machine != 'aarch64'
 py-cpuinfo
 jetson-stats; platform_machine == 'aarch64'
+gguf>=0.13.0
+

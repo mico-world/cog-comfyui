@@ -94,5 +94,9 @@
   {
     "repo": "https://github.com/crystian/ComfyUI-Crystools",
     "commit": "2f18256"
+  },
+  {
+    "repo": "https://github.com/city96/ComfyUI-GGUF",
+    "commit": "be2a083"
   }
 ]

@@ -1,6 +1,5 @@
 build:
   gpu: true
-  cuda: "12.1"
   system_packages:
     - ffmpeg
     - build-essential      # gcc、make 等

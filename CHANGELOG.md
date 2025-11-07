@@ -1,3 +1,6 @@
+## 2025-10-30
+
+- [Add ComfyUI-GGUF](https://github.com/city96/ComfyUI-GGUF) custom node
 ## 2025-10-28
 
 - [Add ComfyUI-Crystools](https://github.com/crystian/ComfyUI-Crystools) custom node
