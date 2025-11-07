@@ -15,4 +15,9 @@ python scripts/add_custom_node.py
 python scripts/install_custom_nodes.py 
 
 ## 启动comfyui
-sh scripts/start.sh     
+sh scripts/start.sh  
+
+## 版本
+python 3.12
+torch 2.6.0
+cuda 12.6
