@@ -5,7 +5,6 @@ build:
     - build-essential      # gcc、make 等
     - libcairo2-dev        # cairo 开发库
     - pkg-config           # 编译时用
-    - python3-dev          # Python 头文件
     - meson
     - ninja-build
   python_version: "3.12"
