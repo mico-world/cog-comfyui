@@ -70,7 +70,7 @@
     },
     {
         "repo_id": "QuantStack/Wan2.1_I2V_14B_FusionX-GGUF",
-        "filename": "Wan2.1_I2V_14B_FusionX-FP16.gguf",
+        "filename": "Wan2.1_I2V_14B_FusionX-Q8_0.gguf",
         "model_type": "diffusion_models"
     }
 ]
