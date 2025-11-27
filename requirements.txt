@@ -85,3 +85,4 @@ py-cpuinfo
 jetson-stats; platform_machine == 'aarch64'
 gguf>=0.13.0
 
+

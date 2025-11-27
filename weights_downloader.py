@@ -17,6 +17,7 @@ class WeightsDownloader:
         ".torchscript",
         ".engine",
         ".patch",
+        ".gguf"
     ]
 
     def __init__(self):

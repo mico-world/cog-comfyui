@@ -57,7 +57,20 @@
         "repo_id": "InstantX/Qwen-Image-ControlNet-Union",
         "filename": "diffusion_pytorch_model.safetensors",
         "model_type": "controlnet"
-
-
+    },
+    {
+        "repo_id": "InstantX/Qwen-Image-ControlNet-Union",
+        "filename": "diffusion_pytorch_model.safetensors",
+        "model_type": "controlnet"
+    },
+    {
+        "repo_id": "QuantStack/Wan2.1_T2V_14B_FusionX_VACE-GGUF",
+        "filename": "Wan2.1_T2V_14B_FusionX_VACE-Q8_0.gguf",
+        "model_type": "diffusion_models"
+    },
+    {
+        "repo_id": "QuantStack/Wan2.1_I2V_14B_FusionX-GGUF",
+        "filename": "Wan2.1_I2V_14B_FusionX-FP16.gguf",
+        "model_type": "diffusion_models"
     }
 ]

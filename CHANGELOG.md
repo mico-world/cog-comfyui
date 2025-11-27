@@ -1,3 +1,6 @@
+## 2025-11-27
+
+- [Add comfyui-kivi-nodes](https://github.com/q654517651/comfyui-kivi-nodes) custom node
 ## 2025-10-30
 
 - [Add ComfyUI-GGUF](https://github.com/city96/ComfyUI-GGUF) custom node

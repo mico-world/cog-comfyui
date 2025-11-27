@@ -98,5 +98,9 @@
   {
     "repo": "https://github.com/city96/ComfyUI-GGUF",
     "commit": "be2a083"
+  },
+  {
+    "repo": "https://github.com/q654517651/comfyui-kivi-nodes",
+    "commit": "78dfd46"
   }
 ]
