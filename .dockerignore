@@ -25,6 +25,7 @@
 
 # Files
 scripts/*
+test/*
 updated_weights.json
 downloaded_user_models/
 

@@ -65,6 +65,7 @@ open-clip-torch>=2.24.0
 pytorch-lightning>=2.2.1
 huggingface_hub[hf-transfer]
 iopath
+simpleeval
 
 # 无法安装
 #svglib

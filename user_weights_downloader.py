@@ -2,6 +2,7 @@ from contextlib import contextmanager
 import shutil
 from user_weights_manifest import WeightsManifest
 import os
+import time
 
 from huggingface_hub import hf_hub_download, login, logout
 
@@ -44,6 +45,7 @@ class HFWeightsDownloader:
 
         with self.login():
             print(f"Download Model: {filename} From HF Hub")
+            start = time.time()
             params = dict(
                 repo_id=repo_id,
                 filename=filename,
@@ -61,6 +63,7 @@ class HFWeightsDownloader:
             file_size_bytes = os.path.getsize(os.path.join(path))
             for i in range(data_units):
                 file_size_bytes /= 1024
+            elapsed_time = time.time() - start
             print(
-                f"✅ diffusion model {filename} download success, size: {file_size_bytes:.2f}{DATA_UNITS[data_units]}")
+                f"✅ diffusion model {filename} download success, time:{elapsed_time}s size: {file_size_bytes:.2f}{DATA_UNITS[data_units]}")
             return path

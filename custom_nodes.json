@@ -60,10 +60,6 @@
     "commit": "726e16f"
   },
   {
-    "repo": "https://github.com/kijai/ComfyUI-HunyuanVideoWrapper",
-    "commit": "3ce9640"
-  },
-  {
     "repo": "https://github.com/kijai/ComfyUI-WanVideoWrapper",
     "commit": "998a69c"
   },
