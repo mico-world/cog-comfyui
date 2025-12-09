@@ -79,6 +79,7 @@ pymatting
 colour-science
 blend_modes
 loguru
+alembic
 
 deepdiff
 pynvml; platform_machine != 'aarch64'

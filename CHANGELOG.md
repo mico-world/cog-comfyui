@@ -1,3 +1,6 @@
+## 2025-12-09
+
+- [Update ComfyUI to latest](https://github.com/comfyanonymous/ComfyUI/compare/426cde3...3b0368a)
 ## 2025-11-27
 
 - [Add comfyui-kivi-nodes](https://github.com/q654517651/comfyui-kivi-nodes) custom node
