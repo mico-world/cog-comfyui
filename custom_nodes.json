@@ -5,7 +5,7 @@
   },
   {
     "repo": "https://github.com/Fannovel16/comfyui_controlnet_aux",
-    "commit": "59b027e"
+    "commit": "136f125"
   },
   {
     "repo": "https://github.com/theUpsider/ComfyUI-Logic",
@@ -13,15 +13,15 @@
   },
   {
     "repo": "https://github.com/Acly/comfyui-tooling-nodes",
-    "commit": "5ef2fdd"
+    "commit": "0220252"
   },
   {
     "repo": "https://github.com/Kosinkadink/ComfyUI-VideoHelperSuite",
-    "commit": "330bce6"
+    "commit": "537f3a0"
   },
   {
     "repo": "https://github.com/Kosinkadink/ComfyUI-Advanced-ControlNet",
-    "commit": "da254b7"
+    "commit": "2bde95a"
   },
   {
     "repo": "https://github.com/jags111/efficiency-nodes-comfyui",
@@ -33,15 +33,15 @@
   },
   {
     "repo": "https://github.com/pythongosssss/ComfyUI-Custom-Scripts",
-    "commit": "aac13aa"
+    "commit": "f2838ed"
   },
   {
     "repo": "https://github.com/kijai/ComfyUI-KJNodes",
-    "commit": "a6b867b"
+    "commit": "488e660"
   },
   {
     "repo": "https://github.com/rgthree/rgthree-comfy",
-    "commit": "944d535"
+    "commit": "b6e0e4b"
   },
   {
     "repo": "https://github.com/evanspearman/ComfyMath",
@@ -57,15 +57,15 @@
   },
   {
     "repo": "https://github.com/Acly/comfyui-inpaint-nodes",
-    "commit": "726e16f"
+    "commit": "1e2543e"
   },
   {
     "repo": "https://github.com/kijai/ComfyUI-WanVideoWrapper",
-    "commit": "998a69c"
+    "commit": "e867e64"
   },
   {
     "repo": "https://github.com/yolain/ComfyUI-Easy-Use",
-    "commit": "f550ce8"
+    "commit": "e900c2c"
   },
   {
     "repo": "https://github.com/orssorbit/ComfyUI-wanBlockswap",
@@ -73,11 +73,11 @@
   },
   {
     "repo": "https://github.com/ShmuelRonen/ComfyUI-VideoUpscale_WithModel",
-    "commit": "1f43704"
+    "commit": "23f4602"
   },
   {
     "repo": "https://github.com/glifxyz/ComfyUI-GlifNodes",
-    "commit": "b86352c"
+    "commit": "503d6d5"
   },
   {
     "repo": "https://github.com/ZenAI-Vietnam/ComfyUI-Kontext-Inpainting",
@@ -85,7 +85,7 @@
   },
   {
     "repo": "https://github.com/chflame163/ComfyUI_LayerStyle",
-    "commit": "89014d8"
+    "commit": "90f4bfb"
   },
   {
     "repo": "https://github.com/crystian/ComfyUI-Crystools",
@@ -93,10 +93,26 @@
   },
   {
     "repo": "https://github.com/city96/ComfyUI-GGUF",
-    "commit": "be2a083"
+    "commit": "01f8845"
   },
   {
     "repo": "https://github.com/q654517651/comfyui-kivi-nodes",
-    "commit": "78dfd46"
+    "commit": "901548c"
+  },
+  {
+    "repo": "https://github.com/kijai/ComfyUI-HunyuanVideoWrapper",
+    "commit": "fcbd672"
+  },
+  {
+    "repo": "https://github.com/fofr/ComfyUI-BrushNet",
+    "commit": "7995b13"
+  },
+  {
+    "repo": "https://github.com/kijai/ComfyUI-Florence2",
+    "commit": "00b6338"
+  },
+  {
+    "repo": "https://github.com/WASasquatch/was-node-suite-comfyui",
+    "commit": "ea935d1"
   }
 ]
